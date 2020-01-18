@@ -44,8 +44,7 @@ async def main(broker_host):
     client.on_disconnect = on_disconnect
     client.on_subscribe = on_subscribe
 
-    client.set_auth_credentials('ctnmhqle', 'KsDbKxfSoJmU')
-    await client.connect(broker_host, 18694)
+    await client.connect(broker_host, 1883)
 
     for x in range(100):
         client.publish('TEST/TIME', time.time(), qos=1)
@@ -55,7 +54,7 @@ async def main(broker_host):
 
 
 if __name__ == '__main__':
-    host = 'hairdresser.cloudmqtt.com'
+    host = 'localhost'
 
     loop = asyncio.get_event_loop()
 
